@@ -8,12 +8,30 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="{% static 'js/materialize.min.js' %}"></script>
     <title>{{ title }}</title>
 </head>
 <body>
-
+     <nav class="purple darken-4">
+        <div class="container nav-wrapper">
+            <a href="{% url 'home:index' %}" class="brand-logo">Agenda</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="{% url 'home:adicionar' %}">Adicionar</a></li>
+                <li><a href="{% url 'home:concluido' %}">Concluídos</a></li>
+            </ul>
+        </div>
+    </nav>
+    {% block body %} {% endblock %}
+    <!-- Compiled and minified JavaScript -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/materialize.min.js' %}"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems, options);
+    });
+    $(document).ready(function(){
+        $('.sidenav').sidenav();
+    });
+    </script>
 </body>
 </html>

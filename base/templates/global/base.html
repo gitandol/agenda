@@ -7,31 +7,67 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="{% static 'css/fonts.googleapi.css' %}">
     <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
     <title>{{ title }}</title>
 </head>
 <body>
      <nav class="purple darken-4">
-        <div class="container nav-wrapper">
-            <a href="{% url 'home:index' %}" class="brand-logo">Agenda</a>
+        <div class="center nav-wrapper">
+            <a href="{% url 'contact:index' %}" class="brand-logo">Agenda</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="{% url 'home:adicionar' %}">Adicionar</a></li>
-                <li><a href="{% url 'home:concluido' %}">Concluídos</a></li>
+                <li><a href="#">{{ request.user.username }}</a></li>
+                <li>
+                    <a href="{% url 'logout' %}" class="tooltipped" data-position="bottom" data-tooltip="Sair">
+                        <i class="large material-icons">exit_to_app</i>
+                    </a>
+                </li>
+
             </ul>
         </div>
     </nav>
-    {% block body %} {% endblock %}
+
+    <div class="row">
+        <div class="col s3">
+            <ul class="collapsible">
+                <li class="active">
+                    <div class="collapsible-header"><i class="material-icons">contacts</i>Contatos</div>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            <a href="{% url 'contact:concluido' %}" class="collection-item">Listar<span class="badge"><i class="material-icons">list</i></span></a>
+                            <a href="{% url 'contact:adicionar' %}" class="collection-item">Adicionar<span class="badge"><i class="material-icons">add</i></span></a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col s9">
+            {% block body %} {% endblock %}
+        </div>
+    </div>
+
     <!-- Compiled and minified JavaScript -->
-    <script src="{% static 'js/jquery.js' %}"></script>
-    <script src="{% static 'js/materialize.min.js' %}"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.sidenav');
-        var instances = M.Sidenav.init(elems, options);
+     <script src="{% static 'js/jquery.js' %}"></script>
+     <script src="{% static 'js/materialize.min.js' %}"></script>
+     <script type="text/javascript">
+
+    $(document).ready(function(){
+        $('.collapsible').collapsible();
     });
+
     $(document).ready(function(){
         $('.sidenav').sidenav();
     });
+
+    var elem = document.querySelector('.collapsible');
+    var instance = M.Collapsible.init(elem, {
+      accordion: false
+    });
+
+    $(document).ready(function(){
+        $('.tooltipped').tooltip();
+    });
+
     </script>
 </body>
 </html>

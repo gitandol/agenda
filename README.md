@@ -1,7 +1,7 @@
 # Projeto Agenda com Django, Docker e Postgres
 
 ## Descrição
-O projeto utiliza conceitos de Django, Python, Docker e Yaml. Desenvolvido para simular agendamentos.
+O projeto utiliza conceitos de Django, Python, Docker e Yaml. Desenvolvido para simular uma agenda de contatos.
 Em desenvolvimento...
 
 ### Infraestrutura

@@ -1,0 +1,30 @@
+
+.login-center {
+  margin-top: 50px;
+}
+
+.login-border {
+  border: 3px solid #e1bee7;
+  border-radius: 20px;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.login-margin {
+    margin-top: 60px;
+    margin-bottom: 80px;
+}
+
+.description {
+    color: #424242;
+}
+
+.msg-login {
+    width: 100%;
+    background-color: red;
+    border-radius: 20px;
+    color: white;
+    font-size: 16px;
+}

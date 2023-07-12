@@ -1,0 +1,20 @@
+<table class="highlight">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Tipo</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.first_name }} {{ contact.last_name }}</td>
+                <td>{{ contact.mask_phone }}</td>
+                <td>{{ contact.created_date }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+
+</table>

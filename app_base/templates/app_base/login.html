@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-bt">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="{% static 'css/fonts.googleapi.css' %}">
+    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <div class="row login-center">
+        <form class="col s10 l4 offset-l4 offset-s1 login-border" method="POST">
+            {% csrf_token %}
+            <div class="col s10 l10 offset-s1 offset-l1 login-margin">
+                <div class="row">
+                    <h3 class="center description">Agenda</h3>
+                </div>
+                <div class="row">
+                    <div class="input-field">
+                        <input id="username_id" type="text" class="validate" name="username">
+                        <label for="username_id"><span class="description">Usuário</span></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field">
+                        <input id="password_id" type="password" class="validate" name="password">
+                        <label for="password_id"><span class="description">Senha</span></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <button class="btn waves-effect waves-light width-100 purple darken-4" type="submit" name="action">Entrar</button>
+                </div>
+
+                {% if msg %}
+                    <div class="row">
+                        <p class="center msg-login z-depth-3">{{msg}}</p>
+                    </div>
+                {% endif %}
+
+            </div>
+        </form>
+    </div>
+
+     <script src="{% static 'js/jquery.js' %}"></script>
+     <script src="{% static 'js/materialize.min.js' %}"></script>
+</body>
+</html>
